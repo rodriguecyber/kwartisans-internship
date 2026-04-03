@@ -25,6 +25,7 @@ Day 03 focused on taking the CSV generated in Day 02 and importing it into a MyS
 - **Database Import Script:** Built a PHP script to read CSV data and insert it into MySQL
 - **Validation:** Added checks for malformed rows, empty values, negative ages, and duplicate emails
 - **Documentation:** Added setup and usage notes for Day 03
+- **LeetCode Challenge:** Solved the "Roman to Integer" problem in PHP with an accepted submission
 
 ## Project Structure
 
@@ -65,7 +66,7 @@ kwartisans-internship/
 ### `day03/README.md`
 
 - **Purpose:** Day 03 setup and usage documentation
-- **Content:** Requirements, environment setup, run command, schema notes, and validation rules
+- **Content:** Requirements, environment setup, run command, schema notes, validation rules, and LeetCode submission notes
 
 ## Technologies Used
 
@@ -104,3 +105,4 @@ php day03/read_and_insert_data.php
 - Open `day02/DAILY_SUMMARY.md` for Day 02 details
 - Open `day03/README.md` for Day 03 setup and usage
 - Check `README.md` for the project overview
+
