@@ -5,6 +5,8 @@ Day 03 focuses on reading the CSV file generated on Day 02 and importing the rec
 
 The script reads user data from `day02/users.csv`, validates each row, inserts new records into a `users` table, and skips invalid or duplicate entries.
 
+Day 03 also included a LeetCode practice task to strengthen problem-solving skills alongside the database work.
+
 ## Files
 
 - `read_and_insert_data.php` - Main PHP script that loads environment variables, connects to MySQL, creates the table if needed, and imports CSV data
@@ -81,3 +83,32 @@ The script can also create the `users` table automatically if the database alrea
 - Imports run inside a database transaction
 - Insert errors are reported to standard error and counted as skipped rows
 - Duplicate records are ignored through `ON DUPLICATE KEY UPDATE`
+
+## LeetCode Challenge
+
+**Problem:** Roman to Integer
+
+### Submission Details
+
+- **Test Cases Passed:** 3999 / 3999
+- **Submitted:** April 03, 2026 17:28
+- **Runtime:** 1 ms
+- **Runtime Ranking:** Beats 100.00%
+- **Memory Usage:** 20.27 MB
+- **Memory Ranking:** Beats 77.43%
+
+### Submission Screenshot
+
+
+
+![Roman to Integer LeetCode submission](./roman-to-integer-submission.png)
+
+### Approach Summary
+
+We solve the Roman to Integer problem by scanning the string from right to left. We use a map to store the values of Roman numerals (`I=1`, `V=5`, `X=10`,`L=50`, `C=100`, `D=500`, `M=1000`, etc.). We keep two variables: total to store the result and prev to remember the value of the previous numeral.
+
+For each character (starting from the end of the string), we get its numeric value. If the current value is less than the previous value, we subtract it from the total because it represents a subtractive case (like IV or IX). Otherwise, we add it to the total.
+
+After processing each character, we update prev to the current value. At the end of the loop, the total contains the final integer value.
+
+This approach works efficiently in one pass and correctly handles both normal and subtractive Roman numeral cases.
