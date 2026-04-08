@@ -1,0 +1,17 @@
+{
+  "name": "day04",
+  "version": "1.0.0",
+  "description": "Day 04 Node.js API layer for exposing users from MySQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "mysql2": "^3.20.0"
+  }
+}
