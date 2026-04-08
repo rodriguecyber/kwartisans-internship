@@ -14,7 +14,7 @@ Day 05 focused on reviewing the work completed during Week 1, improving readabil
 
 ## Mock Interview Prep
 
-### Question
+### Sample Question
 
 **Tell me about a time you fixed a bug in Node.js. How did you find it?**
 
