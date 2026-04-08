@@ -1,6 +1,6 @@
 <?php
 
-// 🔹 Load .env manually
+// Load key/value pairs from the root .env file into $_ENV.
 function loadEnv($path)
 {
     if (!file_exists($path)) {
@@ -19,13 +19,13 @@ function loadEnv($path)
 
 loadEnv(__DIR__ . '/../.env');
 
-// 🔹 Get env variables
+// Reuse the shared database settings for the import step.
 $host = $_ENV['DB_HOST'];
 $dbname = $_ENV['DB_NAME'];
 $username = $_ENV['DB_USER'];
 $password = $_ENV['DB_PASS'];
 
-// 🔹 CSV path
+// The CSV generated on Day 02 is the source for this import.
 $csvPath = realpath(__DIR__ . '/../day02/users.csv');
 
 if (!$csvPath || !file_exists($csvPath)) {
@@ -33,7 +33,7 @@ if (!$csvPath || !file_exists($csvPath)) {
     exit(1);
 }
 
-// 🔹 DB connection
+// Connect with PDO so inserts can use prepared statements safely.
 try {
     $db = new PDO(
         "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
@@ -46,7 +46,7 @@ try {
     exit(1);
 }
 
-// 🔹 Create table
+// Create the table automatically if it does not exist yet.
 $db->exec(
     "CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -57,14 +57,14 @@ $db->exec(
     ) ENGINE=InnoDB;"
 );
 
-// 🔹 Insert
+// Duplicate emails are skipped because the email column is unique.
 $insertStmt = $db->prepare(
     "INSERT INTO users (name, email, age)
      VALUES (:name, :email, :age)
      ON DUPLICATE KEY UPDATE email = email"
 );
 
-// 🔹 Read CSV
+// Open the CSV and skip the header row before processing records.
 if (($handle = fopen($csvPath, 'r')) === false) {
     fwrite(STDERR, "Error: cannot open CSV\n");
     exit(1);
@@ -77,6 +77,7 @@ $inserted = 0;
 $skipped = 0;
 
 while (($row = fgetcsv($handle)) !== false) {
+    // Reject malformed rows before any database work happens.
     if (count($row) < 3) {
         $skipped++;
         continue;
@@ -98,6 +99,7 @@ while (($row = fgetcsv($handle)) !== false) {
             ':age' => $age
         ]);
 
+        // rowCount() is 0 when ON DUPLICATE KEY UPDATE makes no change.
         if ($insertStmt->rowCount() > 0) {
             $inserted++;
         } else {
