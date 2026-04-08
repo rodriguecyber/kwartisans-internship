@@ -27,6 +27,31 @@ Day 03 focused on taking the CSV generated in Day 02 and importing it into a MyS
 - **Documentation:** Added setup and usage notes for Day 03
 - **LeetCode Challenge:** Solved the "Roman to Integer" problem in PHP with an accepted submission
 
+## Day 04: Node.js API Layer
+
+Day 04 focused on creating the API layer with Node.js and Express so the database records can be exposed to other services.
+
+### Tasks Completed
+
+- **Node Project Setup:** Initialized a new npm project in `day04`
+- **Express Server:** Created `server.js` to start a local API server
+- **Database Endpoint:** Added `GET /users` to query the MySQL `users` table and return JSON
+- **LeetCode Challenge:** Solved the "Valid Parentheses" problem in PHP with an accepted submission
+- **Documentation:** Added Day 04 setup and usage notes
+- **Future Readiness:** Prepared the backend for Python ML integration next week
+
+## Day 05: Refactoring and Weekly Retrospective
+
+Day 05 focused on reviewing the week's work, improving readability, preparing for interviews, and documenting lessons learned.
+
+### Tasks Completed
+
+- **Refactoring:** Reviewed the PHP and Node.js scripts and added comments to improve readability
+- **Documentation Review:** Confirmed the repository README explains how to run the PHP import script and the Node server
+- **LeetCode Challenge:** Documented a PHP solution for "Merge Two Sorted Lists"
+- **Mock Interview Prep:** Wrote a bug-fixing story based on the Day 04 Node.js API work
+- **Weekly Retrospective:** Added notes for the Week 1 report and explained `git merge` vs `git rebase`
+
 ## Project Structure
 
 ```text
@@ -41,6 +66,16 @@ kwartisans-internship/
     |-- read_and_insert_data.php
     |-- schema.sql
     |-- .env.example
+    |-- README.md
+    `-- roman-to-integer-submission.png
+`-- day04/
+    |-- package.json
+    |-- package-lock.json
+    |-- server.js
+    |-- image.png
+    `-- README.md
+`-- day05/
+    |-- merge_two_sorted_lists.php
     `-- README.md
 ```
 
@@ -68,10 +103,39 @@ kwartisans-internship/
 - **Purpose:** Day 03 setup and usage documentation
 - **Content:** Requirements, environment setup, run command, schema notes, validation rules, and LeetCode submission notes
 
+### `day04/server.js`
+
+- **Purpose:** Starts the Express server and exposes API routes
+- **Input:** Root `.env` database credentials and the MySQL `users` table
+- **Features:** Loads environment variables, connects with `mysql2`, and returns users as JSON
+
+### `day04/README.md`
+
+- **Purpose:** Day 04 setup and usage documentation
+- **Content:** Requirements, installation steps, run command, endpoint behavior, LeetCode notes, and progress summary
+
+### `day04/image.png`
+
+- **Purpose:** Screenshot of the accepted LeetCode submission for Day 04
+- **Content:** Valid Parentheses submission metrics and accepted result
+
+### `day05/merge_two_sorted_lists.php`
+
+- **Purpose:** PHP implementation of the Day 05 LeetCode challenge
+- **Content:** Iterative merge logic for combining two sorted linked lists
+
+### `day05/README.md`
+
+- **Purpose:** Day 05 summary and weekly retrospective documentation
+- **Content:** Refactoring notes, mock interview prep, LeetCode explanation, and Week 1 reflection
+
 ## Technologies Used
 
 - **PHP:** Data generation and database import scripting
 - **MySQL:** Storage for imported user records
+- **Node.js:** Backend runtime for the API layer
+- **Express.js:** HTTP server and routing
+- **mysql2:** Promise-based MySQL access in Node.js
 - **PDO:** Secure database connection and prepared statements
 - **Git:** Version control and branch-based workflow
 - **CSV:** Simple data exchange format
@@ -100,9 +164,23 @@ php day02/generate.php
 php day03/read_and_insert_data.php
 ```
 
+5. Install the Node.js API dependencies:
+
+```bash
+cd day04
+npm install
+```
+
+6. Start the Node.js API:
+
+```bash
+cd day04
+npm start
+```
+
 ## Documentation
 
 - Open `day02/DAILY_SUMMARY.md` for Day 02 details
 - Open `day03/README.md` for Day 03 setup and usage
-- Check `README.md` for the project overview
-
+- Open `day04/README.md` for Day 04 API setup and usage
+- Open `day05/README.md` for Day 05 refactoring and weekly retrospective notes
