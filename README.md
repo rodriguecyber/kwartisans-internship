@@ -1,6 +1,6 @@
-# Artisan Internship Documentations
+# Artisan Internship fork Documentations
 
-## Day 01: Git and GitHub Basics
+## Day 01: Git and GitHub Basics 
 
 Day 01 focused on learning Git and GitHub basics and creating the initial repository that will be used throughout the 20-day internship period.
 
